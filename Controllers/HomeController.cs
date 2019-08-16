@@ -15,7 +15,7 @@ namespace Chefs_Dishes.Controllers
         {
             List<Chef> allChefs = dbContext.chefs
             .Include(chef => chef.CreatedDishes).ToList();
-            
+            ViewBag.today = DateTime.Today;
             return View("Index", allChefs);
         }
         private MyContext dbContext;
@@ -46,6 +46,9 @@ namespace Chefs_Dishes.Controllers
         }
         [HttpPost("addchef")]
         public IActionResult AddNewChef(Chef newChef){
+            if(!ModelState.IsValid){
+                return View("NewChef");
+            }
             dbContext.Add(newChef);
             dbContext.SaveChanges();
             return RedirectToAction("Index");
