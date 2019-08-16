@@ -12,11 +12,8 @@ namespace Chefs_Dishes.Models{
             input = input.AddYears(18);
             System.Console.WriteLine(input);
             if(input > datetime){
-                System.Console.WriteLine("FAil@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
                 return new ValidationResult("Chef Must be Older then 18! ");
-
             }
-            System.Console.WriteLine("Success !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             return ValidationResult.Success;
             }
         }

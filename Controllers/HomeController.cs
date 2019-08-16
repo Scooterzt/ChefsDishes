@@ -15,7 +15,6 @@ namespace Chefs_Dishes.Controllers
         {
             List<Chef> allChefs = dbContext.chefs
             .Include(chef => chef.CreatedDishes).ToList();
-            ViewBag.today = DateTime.Today;
             return View("Index", allChefs);
         }
         private MyContext dbContext;
